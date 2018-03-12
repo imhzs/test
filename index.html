@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<style type="text/css" media="screen">
+		.container {
+			display: flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="form-wrp">
+			<form id="my_form" action="#" method="post" accept-charset="utf-8">
+				<p>
+					<input type="text" id="login_cookie" name="login_cookie" placeholder="请输入cookie" />
+				</p>
+				<p>
+					<input type="text" id="start_date" name="start_date" placeholder="请输入开始日期" />
+				</p>
+				<p>
+					<input type="text" id="end_date" name="end_date" placeholder="请输入结束日期" />
+				</p>
+				<p>
+					<button type="button" id="btn_start">开始</button>
+				</p>
+			</form>
+		</div>
+	</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script>
+	$('#btn_start').on('click', function () {
+		var form = document.getElementById('my_form');
+		var data = {
+			'cookie': form.login_cookie.value,
+			'start_date': form.start_date.value,
+			'end_date': form.end_date.value
+		};
+		$.ajax({
+			url: 'http://localhost:3000/getData',
+			type: 'POST',
+			dataType: 'json',
+			contentType: 'application/json',
+			data: JSON.stringify(data),
+			beforeSend: function(request) {
+				console.log(data);
+			},
+			success: function(resp) {
+				console.log(resp);
+			}
+		});
+	});
+</script>
+</html>
