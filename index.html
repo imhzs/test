@@ -34,26 +34,23 @@
 </body>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
 <script>
-	$('#btn_start').on('click', function () {
-		var form = document.getElementById('my_form');
-		var data = {
-			'cookie': form.login_cookie.value,
-			'start_date': form.start_date.value,
-			'end_date': form.end_date.value
-		};
-		$.ajax({
-			url: 'http://localhost:3000/getData',
-			type: 'POST',
-			dataType: 'json',
-			contentType: 'application/json',
-			data: JSON.stringify(data),
-			beforeSend: function(request) {
-				console.log(data);
-			},
-			success: function(resp) {
-				console.log(resp);
-			}
-		});
+$('#btn_start').on('click', function () {
+	var form = document.getElementById('my_form');
+	var data = {
+		'cookie': form.login_cookie.value,
+		'start_date': form.start_date.value,
+		'end_date': form.end_date.value
+	};
+	$.ajax({
+		url: 'http://localhost:3000/getData',
+		type: 'POST',
+		dataType: 'json',
+		contentType: 'application/json',
+		data: JSON.stringify(data),
+		success: function(resp) {
+			console.log(resp);
+		}
 	});
+});
 </script>
 </html>
