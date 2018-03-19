@@ -92,7 +92,7 @@ function sendPost(params) {
 		start_time: params.start_date,
 		end_time: params.end_date,
 		page: params.page,
-		telephone: '13692155075'
+		telephone: '00000000000'
 	};
 	
 	let options = {
