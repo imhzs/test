@@ -37,12 +37,12 @@
 $('#btn_start').on('click', function () {
 	var form = document.getElementById('my_form');
 	var data = {
-		'cookie': form.login_cookie.value,
+		'login_cookie': form.login_cookie.value,
 		'start_date': form.start_date.value,
 		'end_date': form.end_date.value
 	};
 	$.ajax({
-		url: 'http://localhost:3000/getData',
+		url: 'http://localhost:3008/getData',
 		type: 'POST',
 		dataType: 'json',
 		contentType: 'application/json',
